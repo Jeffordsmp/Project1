@@ -18,4 +18,29 @@ function getRecipe() {
         console.log(response)
     })
 }
+console.log("before the ajax");
 
+$.ajax({
+    url: "https://spoonacular.com/application/frontend/downloads/top-1k-ingredients.csv",
+    method: "GET",
+}).then(function (response) {
+    console.log(response)
+})
+
+
+function renderIngredients(){
+
+    var ingObj =   {AlcBev:["wine","beer","sake"],
+                    Bakery:["bread"],
+                    canFood:["canned tuna","canned beans"],
+                    CoffeeAndChoc:["instant coffee","instant hot cocoa"],
+                    DietFoods:["diet Coke"],
+                    Dairy:["milk"],
+                    FishnSea:["Tilapia filet","salmon filet"],
+                    Frozen:["Microwave meal"],
+                    nonMeat:["eggs",""],
+                    oils:["Olive Oil"],
+                    Produce:["Tomato","Avocado"],
+                    spicenSauces:["bbq Sauce","Sea Salt","Pepper"]};
+
+}
