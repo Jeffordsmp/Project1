@@ -1,5 +1,6 @@
 var APIKeys = ["97ed52ef559840adbd93fed9102d1c8e", "909ff812fb1445139e4775853f4d6a4a", "362fac0282c242aabd0952d77fc3a515"]
 var targetRecipesBasic = $("#Target_Recipes")
+var targetBtn = $("#target_button")
 
 
 function getRecipe() {
@@ -20,35 +21,34 @@ function getRecipe() {
         response.forEach(function(recipe) {
             var newRecipe = $("<div>")
             newRecipe.addClass("col s4 card grey lighten-2")
-            
+            newRecipe.attr("id", "recipe_card")
+            newRecipe.attr("data-recipe", recipe.id)
+            var newImage = $(`<div class="card-image"><img class="recipeImage" src="${recipe.image}"></div>`)
+            newRecipe.append(newImage)
+            var newContent = $(`
+            <div class="card-content">
+            <h5 class="recipeName">${recipe.title}</h5>
+            <hr>
+            <p class="infoType">You have ${recipe.usedIngredientCount} ingredient(s) and you need ${recipe.missedIngredientCount} more ingredient(s)</p>
+            </div>
+            `)
+            newRecipe.append(newContent)
+            targetRecipesBasic.append(newRecipe)
 
         });
-
-    //     <div class="col s4">
-    //       <div class="card grey lighten-2" src="https://espn.com">
-    //       <div class="card-image">
-    //         <img class="recipeImage" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcookinglsl.com%2Fwp-content%2Fuploads%2F2018%2F01%2Flentil-potato-soup-recipe-fg-1-310x310.jpg&f=1&nofb=1">
-    //       </div>
-    //       <div class="card-content">
-    //         <h5 class="recipeName">Recipe Name</h5>
-    //         <hr>
-    //         <P class="infoType">Time to Cook:</P>
-    //         <p class="infoType">Servings:</p>
-    //         <p class="infoType">Price:</p>
-    //       </div>
-    //     </div>
-    //   </div>
 
     })
 }
 
-function seeRecipe(x) {
+function seeRecipe() {
 
     var APIKey = APIKeys[Math.floor(Math.random() * 3)]
 
     console.log(APIKey)
 
-    var id = x
+    console.log($(this).attr("data-recipe"))
+
+    var id = $(this).attr("data-recipe")
 
     var queryURL = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${APIKey}`
 
@@ -60,4 +60,8 @@ function seeRecipe(x) {
         
     })
 }
+
+targetBtn.on("click", getRecipe)
+
+targetRecipesBasic.on("click", "#recipe_card", seeRecipe)
 
