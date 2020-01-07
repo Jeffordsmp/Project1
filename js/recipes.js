@@ -9,9 +9,9 @@ function getRecipe() {
 
     console.log(APIKey)
 
-    var ingredients = "apples,+flour,+sugar"
+    var ingredients = "apples,+penuts,+milk"
 
-    var queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=6&apiKey=${APIKey}`
+    var queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=6&ranking=2&apiKey=${APIKey}`
 
     $.ajax({
         url: queryURL,
@@ -34,7 +34,6 @@ function getRecipe() {
             `)
             newRecipe.append(newContent)
             targetRecipesBasic.append(newRecipe)
-
         });
 
     })
