@@ -1,6 +1,8 @@
 var APIKeys = ["97ed52ef559840adbd93fed9102d1c8e", "909ff812fb1445139e4775853f4d6a4a", "362fac0282c242aabd0952d77fc3a515"]
 var targetRecipesBasic = $("#Target_Recipes")
 var targetBtn = $("#target_button")
+var popUp = $("#pop_up")
+var closeBtn = $("#close_button")
 
 
 function getRecipe() {
@@ -11,7 +13,7 @@ function getRecipe() {
 
     var ingredients = "apples,+penuts,+milk"
 
-    var queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=6&ranking=2&apiKey=${APIKey}`
+    var queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=9&ranking=2&apiKey=${APIKey}`
 
     $.ajax({
         url: queryURL,
@@ -39,6 +41,7 @@ function getRecipe() {
     })
 }
 
+
 function seeRecipe() {
 
     var APIKey = APIKeys[Math.floor(Math.random() * 3)]
@@ -56,11 +59,36 @@ function seeRecipe() {
         method: "GET",
     }).then(function (response) {
         console.log(response)
+        $("#recipeImage").attr("src", response.image)
+        $("#recipe_name").html(response.title)
+        
+
+
+        popUp.attr("class", "card")
+
         
     })
 }
 
+closeBtn.on("click", function() {
+    popUp.attr("class", "card hidden")
+})
+
 targetBtn.on("click", getRecipe)
 
 targetRecipesBasic.on("click", "#recipe_card", seeRecipe)
+
+var coll = document.getElementsByClassName("collapsible");
+
+for (var i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
 
