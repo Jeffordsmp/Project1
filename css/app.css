@@ -1,0 +1,25 @@
+body {
+    background-color: lightgray;
+}
+.infoType{
+    font-size: 20px;
+    text-decoration: underline;
+    line-height: 1.8;
+}
+.card-title{
+    font-size: 40 px; 
+}
+
+.recipeName{
+    color:red;
+    padding: 10 px;
+}
+
+.card{
+    border-radius: px;
+}
+
+img {
+    max-width: 100%;
+  height: auto;
+}
