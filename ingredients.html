@@ -26,7 +26,7 @@
 <body>
 
 
- 
+
 
   <nav>
     <div class="nav-wrapper">
@@ -70,7 +70,7 @@
             </span>
           </div>
         </li> -->
-        
+
         <!-- <li>
           <div class="collapsible-header"><i class="material-icons">info</i>Spices and Sauces</div>
           <div class="collapsible-body"><span>
@@ -95,31 +95,69 @@
           </span></div>
         </li> -->
       </ul>
+      <div class="row">
+        <a class="waves-effect waves-light btn-large col s6 right-align"><i
+            class="material-icons left">cloud</i>cancel</a>
+        <a class="waves-effect waves-light btn-large col s5 offset-s1 left-align" id = "saveBtn"><i
+            class="material-icons right">cloud</i>save</a>
+      </div>
     </div>
   </div>
 
   </div>
   </div>
 
+  <script src="js/script.js"> </script>
+  <script src="js/ingredients.js"> </script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript">
 
     $(document).ready(function () {
       $('.collapsible').collapsible();
-    });
 
-    $(".collapsible").on("click", ".collapsible-header", function (evt)  {
+      
+    });
+    var storedIng = JSON.parse(localStorage.getItem("ingredients"));
+      var saveIngArray = [];
+      if (!storedIng) {
+        localStorage.setItem("ingredients", JSON.stringify(saveIngArray));
+      } else {
+        saveIngArray = storedIng;
+      }
+
+    $(".collapsible").on("click", ".collapsible-header", function (evt) {
       evt.preventDefault();
       console.log("event working");
-      $(this).children(":first").text("check") 
+      $(this).children(":first").text("check")
+    });;
+
+    $(".collapsible").on("click", ".ingSpanspan", function (evt) {
+      var aux = evt.target.textContent;
+
+      if (saveIngArray.includes(aux)) {
+        saveIngArray.indexOf(aux);
+        saveIngArray = saveIngArray.filter(function (item) {
+          return item !== aux;
+        })
+      }else {
+        saveIngArray.push(aux);
+      }
+console.log(saveIngArray)
+    });
+
+    $("#saveBtn").on("click", function(){
+      localStorage.setItem("ingredients", JSON.stringify(saveIngArray));
+      console.log("localStorage has "+JSON.parse(localStorage.getItem("ingredients")));
     })
 
+
+
+
+
     // $(".collapsible").on("click", ".collapsible-header", function (evt) {
-    
+
   </script>
 
-  <script src="js/script.js"> </script>
-  <script src="js/ingredients.js"> </script>
 </body>
 
 </html>
