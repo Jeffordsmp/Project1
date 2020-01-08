@@ -44,13 +44,16 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="ingredients.html">Ingredients</a></li>
         <li><a href="recipes.html">Recipes</a></li>
-        <li><a href="stores.html">Stores</a></li>
+        <li><a href="stores.html">Favorites</a></li>
         <li><a href="list.html">Shopping list</a></li>
       </ul>
     </div>
   </nav>
 
-  <button id="target_button">test</button>
+  <div class="container">
+    <p>You Have:</p>
+    <ul class="row" id="Target_ingredients"></ul>
+  </div>
 
 
   <div class="container">
@@ -58,12 +61,13 @@
   </div>
 
   <div class="container">
-
     <div class="card hidden" id="pop_up">
       <div class="row">
-      <div class="col s12">
+      <div class="col s11">
         <h2 id="recipe_name">Recipe</h2>
-        <button class="close" id="close_button">X</button>
+      </div>
+      <div class="col s1">
+      <button class="close" id="close_button">X</button>
       </div>
       </div>
       <div class="row">
@@ -92,6 +96,7 @@
           ex ea commodo consequat.</p>
       </div>
       <a href="" id="link_target">The Original Recipe</a>
+      <button class="save_button" id="">Save</button>
     </div>
   </div>
 

@@ -1,8 +1,12 @@
 var APIKeys = ["97ed52ef559840adbd93fed9102d1c8e", "909ff812fb1445139e4775853f4d6a4a", "362fac0282c242aabd0952d77fc3a515"]
 var targetRecipesBasic = $("#Target_Recipes")
+var targetIngredients = $("#Target_ingredients")
 var targetBtn = $("#target_button")
 var popUp = $("#pop_up")
 var closeBtn = $("#close_button")
+var usedIng = JSON.parse(localStorage.getItem("ingredients"))
+
+var savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || []
 
 
 function getRecipe() {
@@ -11,7 +15,11 @@ function getRecipe() {
 
     console.log(APIKey)
 
-    var ingredients = "apples,+penuts,+milk"
+    var ingString = usedIng.join(",+", Array)
+
+    var ingredients = ingString.split(" ").join("+");
+
+    console.log(ingredients)
 
     var queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=12&sort=random&apiKey=${APIKey}`
 
@@ -20,6 +28,7 @@ function getRecipe() {
         method: "GET",
     }).then(function (response) {
         console.log(response)
+
         response.forEach(function(recipe) {
             var newRecipe = $("<div>")
             newRecipe.addClass("col s4 card recipe_card")
@@ -75,6 +84,8 @@ function seeRecipe() {
         $("#recipe_target").html(newSteps)
 
         $("#link_target").attr("href", response.sourceUrl)
+
+        $(".save_button").attr("id", response.id)
     
 
 
@@ -88,9 +99,17 @@ closeBtn.on("click", function() {
     popUp.attr("class", "card hidden")
 })
 
-targetBtn.on("click", getRecipe)
-
 targetRecipesBasic.on("click", "#recipe_card", seeRecipe)
+
+$(".save_button").on("click", function() {
+    console.log($(this).attr("id"))
+    if (savedRecipes.includes($(this).attr("id"))) {
+        return;
+    } else {
+        savedRecipes.push($(this).attr("id"))
+        localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes))
+    }
+})
 
 var coll = document.getElementsByClassName("collapsible");
 
@@ -106,3 +125,13 @@ for (var i = 0; i < coll.length; i++) {
   });
 }
 
+function loadIng() {
+    usedIng.forEach(function(x) {
+        targetIngredients.append(`<li>${x}</li>`)
+    })
+}
+
+loadIng();
+
+
+getRecipe();
