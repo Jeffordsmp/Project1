@@ -134,7 +134,7 @@
     $(".collapsible").on("click", ".ingSpanspan", function (evt) {
       var aux = evt.target.textContent;
 
-      if (saveIngArray.includes(aux)) {
+      if (saveIngArray.includes(aux)) { 
         saveIngArray.indexOf(aux);
         saveIngArray = saveIngArray.filter(function (item) {
           return item !== aux;
