@@ -148,6 +148,7 @@ console.log(saveIngArray)
     $("#saveBtn").on("click", function(){
       localStorage.setItem("ingredients", JSON.stringify(saveIngArray));
       console.log("localStorage has "+JSON.parse(localStorage.getItem("ingredients")));
+      document.location.href = "recipes.html";
     })
 
 
