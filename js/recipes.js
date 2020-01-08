@@ -1,5 +1,6 @@
 var APIKeys = ["97ed52ef559840adbd93fed9102d1c8e", "909ff812fb1445139e4775853f4d6a4a", "362fac0282c242aabd0952d77fc3a515"]
 var targetRecipesBasic = $("#Target_Recipes")
+var targetIngredients = $("#Target_ingredients")
 var targetBtn = $("#target_button")
 var popUp = $("#pop_up")
 var closeBtn = $("#close_button")
@@ -123,6 +124,14 @@ for (var i = 0; i < coll.length; i++) {
     } 
   });
 }
+
+function loadIng() {
+    usedIng.forEach(function(x) {
+        targetIngredients.append(`<li>${x}</li>`)
+    })
+}
+
+loadIng();
 
 
 getRecipe();

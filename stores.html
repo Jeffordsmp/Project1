@@ -17,10 +17,23 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+  <link type="text/css" rel="stylesheet" href="css/app.css" media="screen,projection" />
+
   <!-- Compiled and minified JavaScript -->
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <!---W3 Style-->
+
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    .close {
+      float: right;
+    }
+  </style>
 </head>
 
 <body>
@@ -44,9 +57,48 @@
       You Favorie Recipes
     </h1>
   </div>
-  
+
   <div class="container">
     <div class="row" id="Target_Recipes"></div>
+  </div>
+
+  <div class="container">
+    <div class="card hidden" id="pop_up">
+      <div class="row">
+        <div class="col s11">
+          <h2 id="recipe_name">Recipe</h2>
+        </div>
+        <div class="col s1">
+          <button class="close" id="close_button">X</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <img id="recipeImage"
+            src="https://assets.marthastewart.com/styles/wmax-750/d28/perfect-roast-chicken-a97053/perfect-roast-chicken-a97053_horiz.jpg?itok=DBas50Si"
+            alt="Roast Chicken">
+        </div>
+        <div class="col s6" id="recipe_text">
+
+        </div>
+      </div>
+      <button class="collapsible">Ingredients</button>
+      <div class="content" id="ingredients_target">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio cumque voluptatum corrupti
+          sapiente
+          pariatur laboriosam sequi eligendi in unde totam, quaerat sed obcaecati omnis molestiae ut maxime
+          consequatur quisquam dolor.</p>
+      </div>
+      <button class="collapsible">Recipe</button>
+      <div class="content" id="recipe_target">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+          et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip
+          ex ea commodo consequat.</p>
+      </div>
+      <a href="" id="link_target">The Original Recipe</a>
+    </div>
   </div>
 
 
