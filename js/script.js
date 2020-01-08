@@ -42,7 +42,7 @@ function renderIngredients() {
                 var auxText = "";
                 for (var i = 0; i < 30; i++) {
                     auxArr = ingArray[i + count].split(";");
-                    auxText += '<label class = "ingSpanlaber"> <input type="checkbox" class = "ingSpancheck"  /><span  class = "ingSpanspan" id = ' + index + ";" + (i) + '>' + auxArr[0] + '</span> </label><br>';
+                    auxText += '<label class = "ingSpanlaber"> <input type="checkbox" class = "ingSpancheck" data-check = "false" /><span  class = "ingSpanspan" id = ' + index + ";" + (i) + '>' + auxArr[0] + '</span> </label><br>';
                     ingObj[index].items.push({ name: auxArr[0], id: auxArr[1], check: false })
 
                     if (i === 29) {
