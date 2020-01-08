@@ -13,7 +13,7 @@ function getRecipe() {
 
     var ingredients = "apples,+penuts,+milk"
 
-    var queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=9&ranking=2&apiKey=${APIKey}`
+    var queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=6&sort=random&apiKey=${APIKey}`
 
     $.ajax({
         url: queryURL,
@@ -30,9 +30,6 @@ function getRecipe() {
             var newContent = $(`
             <div class="card-content">
             <h5 class="recipeName">${recipe.title}</h5>
-            <hr>
-            <p class="infoType">You have ${recipe.usedIngredientCount} ingredient(s) and you need ${recipe.missedIngredientCount} more ingredient(s)</p>
-            </div>
             `)
             newRecipe.append(newContent)
             targetRecipesBasic.append(newRecipe)
@@ -61,7 +58,24 @@ function seeRecipe() {
         console.log(response)
         $("#recipeImage").attr("src", response.image)
         $("#recipe_name").html(response.title)
-        
+        $("#recipe_text").html(`<p>Cook Time: ${response.readyInMinutes}</p><p>Servings: ${response.servings}</p><p>Rating: ${response.spoonacularScore}/100</p>`)
+
+        var newIng = $("<ul>")
+        response.extendedIngredients.forEach(function(y) {
+            newIng.append($(`<li>${y.originalString}</li>`))
+        })
+
+        $("#ingredients_target").html(newIng)
+
+        var newSteps = $("<div>")
+        response.analyzedInstructions[0].steps.forEach(function(x) {
+            newSteps.append($(`<p>Step ${x.number}: ${x.step}</p>`))
+        })
+
+        $("#recipe_target").html(newSteps)
+
+        $("#link_target").attr("href", response.sourceUrl)
+    
 
 
         popUp.attr("class", "card")

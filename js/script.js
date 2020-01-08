@@ -22,6 +22,7 @@ function getRecipe() {
 function renderIngredients() {
     if (location.href.includes("ingredients.html")) {
         var ingArray;
+        var ingObj = []
         $.ajax({
             url: "https://spoonacular.com/application/frontend/downloads/top-1k-ingredients.csv",
             method: "GET",
@@ -30,27 +31,67 @@ function renderIngredients() {
             console.log(ingArray)
             var aisleArray = "Baking;Health Foods;Spices and Seasonings;Pasta and Rice;Bakery/Bread;Refrigerated;Canned and Jarred;Frozen;Nut butters, Jams, and Honey;Oil, Vinegar, Salad Dressing;Condiments;Savory Snacks;Milk, Eggs, Other Dairy;Ethnic Foods;Tea and Coffee;Meat;Gourmet;Sweet Snacks;Gluten Free;Alcoholic Beverages;Cereal;Nuts;Beverages;Produce;Not in Grocery Store/Homemade;Seafood;Cheese;Dried Fruits;Online;Grilling Supplies;Bread".split(";");
 
-            var ingObj = []
-            var listItem
-            var i = 0;
-            aisleArray.forEach(function (element) {
 
+            var listItem;
+            var count = 0;
+            aisleArray.forEach(function (element, index) {
                 ingObj.push({
                     name: element,
-                    items: [""]
-                })
-                var auxText = ' <label> <input type="checkbox" /><span>' + ingArray[i + 0] + '</span> </label><br>' + ' <label> <input type="checkbox" /><span>' + ingArray[i + 1] + '</span> </label><br>' + ' <label> <input type="checkbox" /><span>' + ingArray[i + 2] + '</span> </label><br>'
+                    items: []
+                });
+                var auxText = "";
+                for (var i = 0; i < 30; i++) {
+                    auxArr = ingArray[i + count].split(";");
+                    auxText += '<label> <input type="checkbox"/><span  class = "ingSpanspan" id = ' + index + ";" + (i) + '>' + auxArr[0] + '</span> </label><br>';
+                    ingObj[index].items.push({ name: auxArr[0], id: auxArr[1], check: false })
 
-                listItem = $('<li>  <div class="collapsible-header"><i class="material-icons">info</i>' + element + '</div>  <div class="collapsible-body"><span>' + auxText + ' </span>  </div></li>')
-                $(".collapsible").append(listItem)
-                i += 3;
+                    if (i === 29) {
+                        listItem = $('<li>  <div class="collapsible-header"><i class="material-icons">info</i>' + element + '</div>  <div class="collapsible-body"><span>' + auxText + ' </span>  </div></li>')
+                        $(".collapsible").append(listItem)
+                        auxText = "";
+                        count += 30;
+                        console.log(index + ingObj[index].items)
+                        return;
+                    }
 
+                }
+
+
+
+
+
+
+
+
+
+                // ingObj.push({
+                //     name: element,
+                //     items: []
+                // })
+                // var auxText = ' <label> <input type="checkbox" /><span>' + ingArray[i + 0] + '</span> </label><br>' + ' <label> <input type="checkbox" /><span>' + ingArray[i + 1] + '</span> </label><br>' + ' <label> <input type="checkbox" /><span>' + ingArray[i + 2] + '</span> </label><br>'
+
+                // listItem = $('<li>  <div class="collapsible-header"><i class="material-icons">info</i>' + element + '</div>  <div class="collapsible-body"><span>' + auxText + ' </span>  </div></li>')
+                // $(".collapsible").append(listItem)
+                // i += 30;
+                // '<label> <input type="checkbox" /><span>' + ingArray[i] + '</span> </label><br>'
             });
-        })
+            console.log(ingObj[3])
+        });
+
+        // var index = "a";
+        // var alp = "abcdefghijklmnopqrstuvwxyz".split();
+        // var count =0;
+        // for(var i = 0 ;i<ingArray.length; i++){
+        //     if(ingArray[i].charAt[0]!==alp[count]){
+        //         $(".collapsible").append(listItem);
+        //         count++;
+        //     }
+        // '<label> <input type="checkbox" /><span>' + ingArray[i] + '</span> </label><br>'
+        // }
 
 
 
-
+        // var auxText= "";
 
 
     }

@@ -11,8 +11,9 @@ body {
 }
 
 .recipeName{
-    color:red;
+    color:blue;
     padding: 10 px;
+    
 }
 
 .card{
@@ -20,11 +21,14 @@ body {
     padding: 3%;
     padding-top:0%;
     margin-top: 3%;
+    margin-left: 2%;
+    border: 10px
 }
 
 img {
     max-width: 100%;
   height: auto;
+  padding-top: 10px;
 }
 
 .collapsible {
@@ -37,7 +41,7 @@ img {
     text-align: left;
     outline: none;
     font-size: 15px;
-  }
+}
   
   .active, .collapsible:hover {
     background-color: #555;
@@ -51,6 +55,6 @@ img {
     background-color: #f1f1f1;
   }
 
-#pop_up {
-  float: left;
+#recipe_card {
+  background-color: aqua;
 }  
