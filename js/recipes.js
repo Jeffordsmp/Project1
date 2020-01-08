@@ -3,6 +3,7 @@ var targetRecipesBasic = $("#Target_Recipes")
 var targetBtn = $("#target_button")
 var popUp = $("#pop_up")
 var closeBtn = $("#close_button")
+var usedIng = JSON.parse(localStorage.getItem("ingredients"))
 
 
 function getRecipe() {
@@ -11,7 +12,11 @@ function getRecipe() {
 
     console.log(APIKey)
 
-    var ingredients = "apples,+penuts,+milk"
+    var ingString = usedIng.join(",+", Array)
+
+    var ingredients = ingString.split(" ").join("+");
+
+    console.log(ingredients)
 
     var queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=6&sort=random&apiKey=${APIKey}`
 
@@ -20,6 +25,7 @@ function getRecipe() {
         method: "GET",
     }).then(function (response) {
         console.log(response)
+
         response.forEach(function(recipe) {
             var newRecipe = $("<div>")
             newRecipe.addClass("col s4 card grey lighten-2")
@@ -88,8 +94,6 @@ closeBtn.on("click", function() {
     popUp.attr("class", "card hidden")
 })
 
-targetBtn.on("click", getRecipe)
-
 targetRecipesBasic.on("click", "#recipe_card", seeRecipe)
 
 var coll = document.getElementsByClassName("collapsible");
@@ -106,3 +110,5 @@ for (var i = 0; i < coll.length; i++) {
   });
 }
 
+
+getRecipe();
