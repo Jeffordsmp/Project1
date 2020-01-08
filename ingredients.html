@@ -96,9 +96,11 @@
         </li> -->
       </ul>
       <div class="row">
-      <a class="waves-effect waves-light btn-large col s6 right-align"><i class="material-icons left">cloud</i>cancel</a>
-      <a class="waves-effect waves-light btn-large col s5 offset-s1 left-align"><i class="material-icons right">cloud</i>save</a>
-    </div>
+        <a class="waves-effect waves-light btn-large col s6 right-align"><i
+            class="material-icons left">cloud</i>cancel</a>
+        <a class="waves-effect waves-light btn-large col s5 offset-s1 left-align" id = "saveBtn"><i
+            class="material-icons right">cloud</i>save</a>
+      </div>
     </div>
   </div>
 
@@ -112,7 +114,16 @@
 
     $(document).ready(function () {
       $('.collapsible').collapsible();
+
+      
     });
+    var storedIng = JSON.parse(localStorage.getItem("ingredients"));
+      var saveIngArray = [];
+      if (!storedIng) {
+        localStorage.setItem("ingredients", JSON.stringify(saveIngArray));
+      } else {
+        saveIngArray = storedIng;
+      }
 
     $(".collapsible").on("click", ".collapsible-header", function (evt) {
       evt.preventDefault();
@@ -121,8 +132,27 @@
     });;
 
     $(".collapsible").on("click", ".ingSpanspan", function (evt) {
-      console.log(evt.target.id);
+      var aux = evt.target.textContent;
+
+      if (saveIngArray.includes(aux)) { 
+        saveIngArray.indexOf(aux);
+        saveIngArray = saveIngArray.filter(function (item) {
+          return item !== aux;
+        })
+      }else {
+        saveIngArray.push(aux);
+      }
+console.log(saveIngArray)
     });
+
+    $("#saveBtn").on("click", function(){
+      localStorage.setItem("ingredients", JSON.stringify(saveIngArray));
+      console.log("localStorage has "+JSON.parse(localStorage.getItem("ingredients")));
+    })
+
+
+
+
 
     // $(".collapsible").on("click", ".collapsible-header", function (evt) {
 
