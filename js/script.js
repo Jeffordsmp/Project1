@@ -31,18 +31,30 @@ function renderIngredients() {
             console.log(ingArray)
             var aisleArray = "Baking;Health Foods;Spices and Seasonings;Pasta and Rice;Bakery/Bread;Refrigerated;Canned and Jarred;Frozen;Nut butters, Jams, and Honey;Oil, Vinegar, Salad Dressing;Condiments;Savory Snacks;Milk, Eggs, Other Dairy;Ethnic Foods;Tea and Coffee;Meat;Gourmet;Sweet Snacks;Gluten Free;Alcoholic Beverages;Cereal;Nuts;Beverages;Produce;Not in Grocery Store/Homemade;Seafood;Cheese;Dried Fruits;Online;Grilling Supplies;Bread".split(";");
 
-
+            var storedIng = JSON.parse(localStorage.getItem("ingredients"));
+            var saveIngArray = [];
+            if (!storedIng) {
+                localStorage.setItem("ingredients", JSON.stringify(saveIngArray));
+            } else {
+                saveIngArray = storedIng;
+            }
             var listItem;
             var count = 0;
             aisleArray.forEach(function (element, index) {
+
                 ingObj.push({
                     name: element,
                     items: []
                 });
                 var auxText = "";
                 for (var i = 0; i < 30; i++) {
+                    var checked = "";
+                    
                     auxArr = ingArray[i + count].split(";");
-                    auxText += '<label> <input type="checkbox"/><span  class = "ingSpanspan" id = ' + index + ";" + (i) + '>' + auxArr[0] + '</span> </label><br>';
+                    if(saveIngArray.includes(auxArr[0])){
+                        checked = "checked";
+                    }
+                    auxText += '<label> <input type="checkbox" ' + checked + '/><span  class = "ingSpanspan" id = ' + index + ";" + (i) + '>' + auxArr[0] + '</span> </label><br>';
                     ingObj[index].items.push({ name: auxArr[0], id: auxArr[1], check: false })
 
                     if (i === 29) {
