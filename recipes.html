@@ -17,19 +17,20 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-  <link type="text/css" rel="stylesheet" href="css/app.css" media="screen,projection" />
 
   <!-- Compiled and minified JavaScript -->
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js"
-      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
   <!---W3 Style-->
 
+  <link type="text/css" rel="stylesheet" href="css/app.css" media="screen,projection" />
   <style>
     .hidden {
       display: none;
     }
-    .close{
+
+    .close {
       float: right;
     }
   </style>
@@ -49,10 +50,11 @@
       </ul>
     </div>
   </nav>
-
-  <div class="container">
-    <p>You Have:</p>
-    <ul class="row" id="Target_ingredients"></ul>
+  <div id="youIngredients">
+    <div class="container" id="yourIngredients">
+      <p>You Have:</p>
+      <ul class="row" id="Target_ingredients"></ul>
+    </div>
   </div>
 
 
@@ -63,12 +65,12 @@
   <div class="container">
     <div class="card hidden" id="pop_up">
       <div class="row">
-      <div class="col s11">
-        <h2 id="recipe_name">Recipe</h2>
-      </div>
-      <div class="col s1">
-      <button class="close" id="close_button">X</button>
-      </div>
+        <div class="col s11">
+          <h4 id="recipe_name">Recipe</h4>
+        </div>
+        <div class="col s1">
+          <button class="close" id="close_button">X</button>
+        </div>
       </div>
       <div class="row">
         <div class="col s6">
