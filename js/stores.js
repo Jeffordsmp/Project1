@@ -80,11 +80,7 @@ function seeRecipe() {
 
         $("#link_target").attr("href", response.sourceUrl)
 
-    
-
-
         popUp.attr("class", "card")
-
         
     })
 }
