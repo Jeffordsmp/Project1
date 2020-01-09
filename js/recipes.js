@@ -21,7 +21,7 @@ function getRecipe() {
 
     console.log(ingredients)
 
-    var queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=6&sort=random&apiKey=${APIKey}`
+    var queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=12&sort=random&apiKey=${APIKey}`
 
     $.ajax({
         url: queryURL,
@@ -31,14 +31,14 @@ function getRecipe() {
 
         response.forEach(function(recipe) {
             var newRecipe = $("<div>")
-            newRecipe.addClass("col s4 card grey lighten-2")
+            newRecipe.addClass("col s4 card recipe_card")
             newRecipe.attr("id", "recipe_card")
             newRecipe.attr("data-recipe", recipe.id)
             var newImage = $(`<div class="card-image"><img class="recipeImage" src="${recipe.image}"></div>`)
             newRecipe.append(newImage)
             var newContent = $(`
             <div class="card-content">
-            <h5 class="recipeName">${recipe.title}</h5>
+            <span class="recipeName">${recipe.title}</span>
             `)
             newRecipe.append(newContent)
             targetRecipesBasic.append(newRecipe)

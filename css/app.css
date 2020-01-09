@@ -1,5 +1,5 @@
 body {
-    background-color: lightgray;
+    background-color: white;
 }
 .infoType{
     font-size: 20px;
@@ -11,20 +11,21 @@ body {
 }
 
 .recipeName{
-    color:red;
-    padding: 10 px;
+    color: #706C61;
 }
+
 
 .card{
     border-radius: 10px;
     padding: 3%;
     padding-top:0%;
     margin-top: 3%;
+    margin-left: 2%;
+    border: 10px
 }
 
 img {
     max-width: 100%;
-
 }
 
 .collapsible {
@@ -37,7 +38,7 @@ img {
     text-align: left;
     outline: none;
     font-size: 15px;
-  }
+}
   
   .active, .collapsible:hover {
     background-color: #555;
@@ -51,4 +52,15 @@ img {
     background-color: #f1f1f1;
   }
 
-  
+.recipe_card {
+  background-color: #F8F4E3;
+  margin: 20px;
+  max-width: 270px;
+  height: 300px;
+  text-size-adjust: auto;
+  text-align: center;
+}  
+
+.card-content {
+  word-wrap : break-word;
+}
