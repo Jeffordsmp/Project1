@@ -26,10 +26,6 @@ body {
 
 img {
     max-width: 100%;
-  height: auto;
-  padding-top: 10px;
-  border: black;
-  border-width: 2px;
 }
 
 .collapsible {

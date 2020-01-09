@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Project 1</title>
+  <link rel='icon' href='Favicon.png' type='image/x-icon'>
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
@@ -28,12 +29,11 @@
  
   <nav>
     <div class="nav-wrapper">
-      <a href="index.html" class="brand-logo">Logo</a>
+      <a href="index.html" class="brand-logo"><img src="Favicon.png" height="65px" width="65px"></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="ingredients.html">Ingredients</a></li>
         <li><a href="recipes.html">Recipes</a></li>
         <li><a href="stores.html">Favorites</a></li>
-        <li><a href="list.html">Shopping list</a></li>
       </ul>
     </div>
   </nav>
@@ -43,8 +43,17 @@
       Whats in your Fridge?
     </h1>
 
-    <div id="pageContent">
+    <div id="pageContent" class="row">
+      <img src="Logo.png" alt="Logo" class="col s5 center-align">
+      <div class="col s7">
+        <h1>How it Works</h1>
+        <ol>
+          <li>On the Ingredients Tab, enter all the items you have in your house.</li>
+          <li>Once you have all your Ingredients, click Submit.</li>
+          <li>The site should then show you several recipes useing the items that you have in your house.</li>
+        </ol>
 
+      </div>
     </div>
   </div>
 
