@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Project 1</title>
+  <link rel='icon' href='Favicon.png' type='image/x-icon'>
+  
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
@@ -17,7 +19,7 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-  <link type="text/css" rel="stylesheet" href="css/app.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/app.css"  />
 
   <!-- Compiled and minified JavaScript -->
 
@@ -40,17 +42,19 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="index.html" class="brand-logo">Logo</a>
+      <a href="index.html" class="brand-logo"><img src="Favicon.png" height="65px" width="65px"></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="ingredients.html">Ingredients</a></li>
         <li><a href="recipes.html">Recipes</a></li>
-        <li><a href="stores.html">Stores</a></li>
-        <li><a href="list.html">Shopping list</a></li>
+        <li><a href="stores.html">Favorites</a></li>
       </ul>
     </div>
   </nav>
 
-  <button id="target_button">test</button>
+  <div class="container">
+    <p>You Have:</p>
+    <ul class="row" id="Target_ingredients"></ul>
+  </div>
 
 
   <div class="container">
@@ -58,16 +62,17 @@
   </div>
 
   <div class="container">
-
     <div class="card hidden" id="pop_up">
       <div class="row">
-      <div class="col s12">
+      <div class="col s11">
         <h2 id="recipe_name">Recipe</h2>
-        <button class="close" id="close_button">X</button>
+      </div>
+      <div class="col s1">
+      <button class="close" id="close_button">X</button>
       </div>
       </div>
       <div class="row">
-        <div class="col s6">
+        <div class="col s4">
           <img id="recipeImage"
             src="https://assets.marthastewart.com/styles/wmax-750/d28/perfect-roast-chicken-a97053/perfect-roast-chicken-a97053_horiz.jpg?itok=DBas50Si"
             alt="Roast Chicken">
@@ -92,6 +97,7 @@
           ex ea commodo consequat.</p>
       </div>
       <a href="" id="link_target">The Original Recipe</a>
+      <button class="save_button" id="">Save</button>
     </div>
   </div>
 
