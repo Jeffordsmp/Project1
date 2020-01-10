@@ -31,7 +31,7 @@ function getRecipe() {
 
         response.forEach(function(recipe) {
             var newRecipe = $("<div>")
-            newRecipe.addClass("col s4 card")
+            newRecipe.addClass("col s4 card recipe_card")
             newRecipe.attr("id", "recipe_card")
             newRecipe.attr("data-recipe", recipe.id)
             var newImage = $(`<div class="card-image"><img class="recipeImage" src="${recipe.image}"></div>`)

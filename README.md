@@ -8,5 +8,5 @@
 
     - Teddy 
 
-    https://jeffordsm.github.io/Project1/
     
+https://jeffordsm.github.io/Project1/
