@@ -135,11 +135,7 @@
     $(".collapsible").on("click", ".ingSpanspan", function (evt) {
       var aux = evt.target.textContent;
 
-<<<<<<< HEAD
-      if (saveIngArray.includes(aux)) {
-=======
       if (saveIngArray.includes(aux)) { 
->>>>>>> 772e080ac3c205b3fe721d77be7e8b263bf06671
         saveIngArray.indexOf(aux);
         saveIngArray = saveIngArray.filter(function (item) {
           return item !== aux;
@@ -153,10 +149,7 @@ console.log(saveIngArray)
     $("#saveBtn").on("click", function(){
       localStorage.setItem("ingredients", JSON.stringify(saveIngArray));
       console.log("localStorage has "+JSON.parse(localStorage.getItem("ingredients")));
-<<<<<<< HEAD
-=======
       document.location.href = "recipes.html";
->>>>>>> 772e080ac3c205b3fe721d77be7e8b263bf06671
     })
 
 
