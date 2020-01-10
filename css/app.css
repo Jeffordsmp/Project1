@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-color:#EDE8E8;
 }
 .infoType{
     font-size: 20px;
@@ -11,7 +11,15 @@ body {
 }
 
 .recipeName{
-    color: #706C61;
+    color:black;
+    padding: 10 px;
+}
+#recipe_card{
+  background-color:#ffffff;
+  margin: 2px;
+  max-width: 289px;
+  height: 320px;
+  color: #706C61;
 }
 
 
@@ -23,9 +31,15 @@ body {
     margin-left: 2%;
     border: 10px
 }
+ .recipeName {
+   text-align: center;
+   font-size: 16px;
+   margin-top: 10px;
+ }
 
 img {
     max-width: 100%;
+    margin-top: 12px;
 }
 
 .collapsible {
@@ -52,15 +66,56 @@ img {
     background-color: #f1f1f1;
   }
 
-.recipe_card {
-  background-color: #F8F4E3;
-  margin: 20px;
-  max-width: 270px;
-  height: 300px;
-  text-size-adjust: auto;
-  text-align: center;
+#pop_up {
+  position: fixed;
+  z-index: 900;
+  width: 920px;
+  top: 70px;
+  left: 12.5%; 
+  overflow: scroll;
+  height: 100%;
+  
 }  
 
-.card-content {
-  word-wrap : break-word;
+#close_button {
+position: absolute;
+top: 10px;
+right: 10px;
+
 }
+.collapsible {
+  background-color: #ee6e73;
+}
+
+#recipe_name {
+  color: #342E37;
+}
+
+#yourIngredients{
+  display: inline;
+  font-size: 16px;  
+  width: 900px;
+  align:center;
+}
+
+#Target_ingredients li{
+  display: inline;
+}
+
+#youIngredients {
+  margin: 0 15%;
+  }
+  .recipe_card {
+    background-color: #F8F4E3;
+    margin: 20px;
+    max-width: 270px;
+    height: 300px;
+    text-size-adjust: auto;
+    text-align: center;
+  }  
+  
+  .card-content {
+    word-wrap : break-word;
+  }
+ 
+

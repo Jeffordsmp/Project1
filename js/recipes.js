@@ -38,7 +38,7 @@ function getRecipe() {
             newRecipe.append(newImage)
             var newContent = $(`
             <div class="card-content">
-            <span class="recipeName">${recipe.title}</span>
+            <p class="recipeName">${recipe.title}</p>
             `)
             newRecipe.append(newContent)
             targetRecipesBasic.append(newRecipe)
@@ -127,7 +127,7 @@ for (var i = 0; i < coll.length; i++) {
 
 function loadIng() {
     usedIng.forEach(function(x) {
-        targetIngredients.append(`<li>${x}</li>`)
+        targetIngredients.append(`<li><a class="waves-effect waves-light btn">${x}</a></li>`)
     })
 }
 
